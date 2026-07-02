@@ -1,0 +1,4 @@
+interface:
+  display_name: "Fin Academy Site Builder"
+  short_description: "Build strong school landing pages"
+  default_prompt: "Use $fin-academy-site-builder to create a conversion-focused landing page for a Master CFO product."

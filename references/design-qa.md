@@ -8,6 +8,7 @@ Use:
 
 - restrained palette with 2-3 neutral levels and one accent;
 - clear section rhythm;
+- varied layout mechanics instead of a repeated stack of identical cards;
 - local fonts;
 - real media: speaker photos, screenshots, product previews, lesson artifacts;
 - strong typography hierarchy;
@@ -24,6 +25,8 @@ Avoid:
 - wide mobile tables;
 - hero text in a card;
 - fake counters and fake urgency.
+
+For stronger section composition, use [layout-patterns.md](layout-patterns.md).
 
 ## Typography
 
@@ -94,6 +97,7 @@ Before delivery:
 - desktop screenshot checked;
 - mobile 390px screenshot checked;
 - hero first viewport shows offer, CTA, and visual signal;
+- long pages use several distinct section patterns, not one repeated card template;
 - sticky CTA works and does not overlap footer;
 - all CTAs point to correct URLs or explicit placeholders;
 - footer has legal/contact links;
@@ -102,4 +106,3 @@ Before delivery:
 - no invented facts;
 - no secrets in repo/output;
 - build command passes if present.
-

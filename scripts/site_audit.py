@@ -12,6 +12,7 @@ from __future__ import annotations
 import os
 import re
 import sys
+import urllib.error
 import urllib.request
 from pathlib import Path
 
@@ -23,12 +24,16 @@ SECRET_PATTERNS = [
 ]
 
 TRACKING_PARAMS = ["utm_source", "utm_medium", "utm_campaign", "utm_content", "utm_term", "yclid", "gclid", "fbclid", "gcpc"]
+CTA_WORDS = ["зарегистр", "получить", "выбрать", "оплат", "забрать", "доступ", "оставить заявку", "записаться"]
 
 
 def load_target(target: str) -> tuple[str, str]:
     if target.startswith(("http://", "https://")):
-        with urllib.request.urlopen(target, timeout=20) as response:
-            return response.read().decode("utf-8", errors="replace"), target
+        try:
+            with urllib.request.urlopen(target, timeout=20) as response:
+                return response.read().decode("utf-8", errors="replace"), target
+        except urllib.error.URLError as error:
+            raise SystemExit(f"Could not load URL: {target}\nReason: {error}") from error
 
     path = Path(target).expanduser()
     if path.is_dir():
@@ -54,9 +59,17 @@ def main() -> int:
     results: list[tuple[str, str]] = []
 
     check("<title" in lower, "title present", "missing <title>", results)
+    check("<h1" in lower, "h1 present", "missing <h1>", results)
     check('name="description"' in lower or "name='description'" in lower, "meta description present", "missing meta description", results)
     check('name="viewport"' in lower or "name='viewport'" in lower, "viewport present", "missing viewport meta", results)
     check("lang=\"ru\"" in lower or "lang='ru'" in lower, "html lang ru present", "missing html lang=\"ru\"", results)
+    check(any(word in lower for word in CTA_WORDS), "CTA/action wording detected", "CTA/action wording not detected", results)
+    check(
+        "sticky" in lower or ("position: fixed" in lower and "bottom:" in lower),
+        "sticky/fixed mobile CTA hint detected",
+        "sticky/fixed mobile CTA not detected",
+        results,
+    )
     check("metrika.soholms.com/watch.js" in lower, "SOHO metrika present", "missing SOHO metrika", results)
     check("ym(" in html or "mc.yandex.ru/metrika" in lower, "Yandex metrika appears present", "Yandex metrika not detected", results)
     check(any(param in scan_html for param in TRACKING_PARAMS), "tracking params referenced", "UTM/tracking passthrough not detected", results)

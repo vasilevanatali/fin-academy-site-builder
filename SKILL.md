@@ -1,6 +1,6 @@
 ---
 name: fin-academy-site-builder
-description: Build, improve, audit, and prepare conversion-focused websites and landing pages for Fin Academy / Master CFO educational products, webinars, mini-courses, excursions, consulting offers, and static promotional pages. Use when creating or editing school/product sites such as ChatGPT, Claude, Codex, AI-combo, vibe-coding, finance/probudget, outsourcing/consulting, or similar Russian landing pages; when extracting a brief into site structure; when adding analytics, UTM passthrough, payment CTAs, sticky mobile CTA, public promo links, responsive QA, or deployment-ready static/Vite/Next output.
+description: Build, improve, audit, and prepare visually polished, conversion-focused websites and landing pages for Fin Academy / Master CFO educational products, webinars, mini-courses, excursions, consulting offers, and static promotional pages. Use when creating or editing school/product sites such as ChatGPT, Claude, Codex, AI-combo, vibe-coding, finance/probudget, outsourcing/consulting, or similar Russian landing pages; when extracting a brief into site structure; when choosing stronger page composition, varied layout patterns, artifact previews, pricing sections, responsive design, analytics, UTM passthrough, payment CTAs, sticky mobile CTA, public promo links, QA, or deployment-ready static/Vite/Next output.
 ---
 
 # Fin Academy Site Builder
@@ -25,7 +25,7 @@ Use this skill to turn a business brief into a usable, polished, conversion-orie
 1. **Collect brief.** Identify offer, audience, price, access term, date, CTA target, payment link, required legal/footer links, analytics IDs, source assets, and whether the page is draft or production.
 2. **Choose stack.** For a one-off event or fast promo page, prefer static HTML or Vite SPA. For a larger modular page with many sections/content files, use Vite/React or existing Next structure. See [site-architecture.md](references/site-architecture.md).
 3. **Design the conversion structure.** Build the page around hero -> proof -> pain/job -> program/contents -> artifacts/bonuses -> authors -> tariffs/payment -> FAQ -> final CTA. See [conversion-copy.md](references/conversion-copy.md).
-4. **Apply visual system.** Use restrained, domain-specific design with strong first-viewport signal, local fonts, stable spacing, mobile sticky CTA, and clear section rhythm. See [design-qa.md](references/design-qa.md).
+4. **Apply visual system and layout patterns.** Use restrained, domain-specific design with strong first-viewport signal, local fonts, stable spacing, mobile sticky CTA, clear section rhythm, and non-repetitive layouts. See [design-qa.md](references/design-qa.md) and [layout-patterns.md](references/layout-patterns.md).
 5. **Add analytics and UTM.** Add SOHO metrika, Yandex.Metrika when an ID is provided, and UTM passthrough to payment/excursion links. See [analytics-deploy.md](references/analytics-deploy.md).
 6. **Use public promo links only when appropriate.** Use known public examples and Telegram channels from [promo-links.md](references/promo-links.md); never include private invite links or internal exports.
 7. **Run checks.** Build/lint if a project has scripts. Run `python3 scripts/site_audit.py <path-or-url>` against the output HTML or built folder. For browser apps, also inspect in desktop and mobile viewports.
@@ -34,6 +34,8 @@ Use this skill to turn a business brief into a usable, polished, conversion-orie
 ## Source Patterns
 
 Read [source-lessons.md](references/source-lessons.md) when you need examples of what was learned from prior sites and what not to repeat.
+
+Read [layout-patterns.md](references/layout-patterns.md) when a page needs stronger visual composition, varied section layouts, artifact previews, interactive blocks, or a less generic landing-page feel.
 
 ## Fast Prompts
 
@@ -59,5 +61,5 @@ Improve an existing page:
 
 ```text
 Use $fin-academy-site-builder to improve this page using Fin Academy site patterns.
-Keep the offer and facts unchanged. Improve section rhythm, mobile CTA, typography, proof blocks, tariff section, analytics, and QA.
+Keep the offer and facts unchanged. Improve section rhythm, layout variety, artifact previews, mobile CTA, typography, proof blocks, tariff section, analytics, and QA.
 ```

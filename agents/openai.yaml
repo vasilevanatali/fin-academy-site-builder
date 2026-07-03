@@ -1,4 +1,4 @@
 interface:
   display_name: "Fin Academy Site Builder"
-  short_description: "Build polished school landing pages"
-  default_prompt: "Use $fin-academy-site-builder to create a visually polished, conversion-focused landing page for a Master CFO product."
+  short_description: "Build trend-aware landing pages"
+  default_prompt: "Use $fin-academy-site-builder to create a trend-aware, visually polished, conversion-focused landing page for a Master CFO product."

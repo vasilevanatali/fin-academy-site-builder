@@ -9,6 +9,8 @@ Use:
 - restrained palette with 2-3 neutral levels and one accent;
 - clear section rhythm;
 - varied layout mechanics instead of a repeated stack of identical cards;
+- one explicit design direction from [design-directions.md](design-directions.md);
+- 2-4 current-year tactics from [trend-radar-2026.md](trend-radar-2026.md) only when they serve clarity/trust/conversion;
 - local fonts;
 - real media: speaker photos, screenshots, product previews, lesson artifacts;
 - strong typography hierarchy;
@@ -66,6 +68,22 @@ Check:
 - text does not overflow buttons/cards;
 - no section relies on hover only.
 
+## Accessibility And Performance
+
+Use WCAG 2.2 as the practical baseline where possible:
+
+- interactive targets should be at least 24x24 CSS px, and primary CTAs should be comfortably larger;
+- focus states must be visible;
+- text and non-text UI contrast must be readable;
+- keyboard navigation must not trap the user;
+- motion should respect reduced-motion preferences.
+
+Aim for Core Web Vitals readiness:
+
+- LCP: keep hero media optimized and avoid render-blocking assets;
+- INP: avoid heavy scripts and unnecessary interaction handlers;
+- CLS: reserve dimensions for images, embeds, banners, and sticky UI.
+
 ## Motion
 
 Use motion sparingly:
@@ -103,6 +121,8 @@ Before delivery:
 - footer has legal/contact links;
 - analytics scripts present when IDs are provided;
 - UTM passthrough works on payment/cross-sell links;
+- Core Web Vitals risks reviewed: LCP, INP, CLS;
+- accessibility risks reviewed: target size, focus states, contrast, reduced motion;
 - no invented facts;
 - no secrets in repo/output;
 - build command passes if present.

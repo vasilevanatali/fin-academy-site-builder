@@ -25,6 +25,7 @@ SECRET_PATTERNS = [
 
 TRACKING_PARAMS = ["utm_source", "utm_medium", "utm_campaign", "utm_content", "utm_term", "yclid", "gclid", "fbclid", "gcpc"]
 CTA_WORDS = ["зарегистр", "получить", "выбрать", "оплат", "забрать", "доступ", "оставить заявку", "записаться"]
+TRUST_WORDS = ["отзыв", "пример", "автор", "эксперт", "контакт", "оплата", "доступ", "гарант", "вопрос"]
 
 
 def load_target(target: str) -> tuple[str, str]:
@@ -64,12 +65,16 @@ def main() -> int:
     check('name="viewport"' in lower or "name='viewport'" in lower, "viewport present", "missing viewport meta", results)
     check("lang=\"ru\"" in lower or "lang='ru'" in lower, "html lang ru present", "missing html lang=\"ru\"", results)
     check(any(word in lower for word in CTA_WORDS), "CTA/action wording detected", "CTA/action wording not detected", results)
+    check(any(word in lower for word in TRUST_WORDS), "trust/payment/access wording detected", "trust/payment/access wording not detected", results)
     check(
         "sticky" in lower or ("position: fixed" in lower and "bottom:" in lower),
         "sticky/fixed mobile CTA hint detected",
         "sticky/fixed mobile CTA not detected",
         results,
     )
+    check(":focus" in lower or "focus-visible" in lower, "focus styles detected", "focus styles not detected", results)
+    check("prefers-reduced-motion" in lower, "reduced-motion handling detected", "reduced-motion handling not detected", results)
+    check("width=" in lower and "height=" in lower or "aspect-ratio" in lower, "image/layout sizing hint detected", "image/layout sizing hint not detected", results)
     check("metrika.soholms.com/watch.js" in lower, "SOHO metrika present", "missing SOHO metrika", results)
     check("ym(" in html or "mc.yandex.ru/metrika" in lower, "Yandex metrika appears present", "Yandex metrika not detected", results)
     check(any(param in scan_html for param in TRACKING_PARAMS), "tracking params referenced", "UTM/tracking passthrough not detected", results)

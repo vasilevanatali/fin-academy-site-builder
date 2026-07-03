@@ -20,10 +20,13 @@ Use these lessons as reusable patterns, not as code to copy verbatim.
 4. **Content as data.** For React/Next pages, keep product facts, dates, prices, navigation, FAQ, tariffs, speakers, and reviews in `content/` files when practical.
 5. **Modular sections.** Prefer named components: `Hero`, `Stats`, `Program`, `Experts`, `Tariffs`, `FAQ`, `FinalCta`, `Footer`, `StickyCta`.
 6. **Layout variety with purpose.** Mix hero artifact previews, proof strips, timelines, tabs, before/after blocks, dark anchors, and sticky summaries when they help explain the offer.
-7. **Local assets.** Host fonts and critical images locally. Avoid dependency on Google Fonts for Russian traffic.
-8. **Analytics by default.** Add SOHO metrika and a unique Yandex.Metrika ID when available.
-9. **UTM survival.** Preserve `utm_*`, `yclid`, `gclid`, `fbclid`, and `gcpc` when users click payment or cross-sell links.
-10. **Production verification.** Verify the real domain, not just local build. Check DNS, HTTP status, SSL, counters, gzip, and rendered mobile view.
+7. **Named design direction.** Choose a coherent direction before coding so pages do not drift into generic SaaS style.
+8. **Conversion hypothesis.** State what the page is trying to improve: registrations, payment clicks, applications, or trust before payment.
+9. **Local assets.** Host fonts and critical images locally. Avoid dependency on Google Fonts for Russian traffic.
+10. **Analytics by default.** Add SOHO metrika and a unique Yandex.Metrika ID when available.
+11. **UTM survival.** Preserve `utm_*`, `yclid`, `gclid`, `fbclid`, and `gcpc` when users click payment or cross-sell links.
+12. **Production verification.** Verify the real domain, not just local build. Check DNS, HTTP status, SSL, counters, gzip, and rendered mobile view.
+13. **Post-launch loop.** For campaign pages, hand off measurement goals and next hypotheses instead of treating launch as final.
 
 ## Practices Not To Repeat
 
